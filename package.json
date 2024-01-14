@@ -1,5 +1,14 @@
 {
   "name": "triplicate",
+  "author": {
+    "name": "squaaawk"
+  },
+  "publisher": "squaaawk",
+  "icon": "images/triplicate.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/squaaawk/triplicate"
+  },
   "displayName": "Triplicate",
   "description": "No more line number shifting!",
   "version": "0.0.1",
@@ -10,7 +19,7 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
