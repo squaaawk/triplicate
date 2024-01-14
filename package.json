@@ -1,0 +1,62 @@
+{
+  "name": "triplicate",
+  "displayName": "Triplicate",
+  "description": "No more line number shifting!",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Triplicate",
+      "properties": {
+        "triplicate.system": {
+          "type": "string",
+          "default": "fixed length",
+          "description": "The numbering system to use for line numbers.",
+          "enum": ["fixed length", "factoradic"],
+          "enumDescriptions": [
+            "Each line number is a of a fixed length (defined by triplicate.length). Chooses the number's base to be the minimum value such that every line number can be represented within this fixed width.",
+            "Each line number is written in the factorial number system."
+          ]
+        },
+        "triplicate.alphabet": {
+          "type": "string",
+          "default": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ",
+          "description": "The alphabet used for rendering line numbers. Defaults to 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ."
+        },
+        "triplicate.length": {
+          "type": "number",
+          "default": 3,
+          "description": "The length of each line number, if using the fixed length numbering system. Defaults to 3."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
+  }
+}
