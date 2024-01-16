@@ -144,7 +144,7 @@ function updateDecorations(editor: vscode.TextEditor, visibleRanges: readonly vs
 		if (renderLast === "off" && editor.document.lineAt(editor.document.lineCount - 1).text.length === 0) max -= 1;
 
 		// Compute the base used if we're using the fixed length system
-		const requiredBase = Math.pow(max + 1, 1 / length);
+		const requiredBase = Math.pow(editor.document.lineCount + 1, 1 / length);
 		const base = clamp(Math.ceil(requiredBase), 2, alphabet.length);
 
 		// Compute the maximum length of a number if we're using the factoradic system
